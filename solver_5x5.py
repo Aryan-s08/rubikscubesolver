@@ -4,7 +4,7 @@ import numpy as np
 import sys
 
 while True:
-    """
+    
     GRID_SIZE = 5   # <<< 5x5 cube
 
     # ---------------- HELPERS ---------------- #
@@ -268,7 +268,7 @@ while True:
         print("FACED ",faced)
     if __name__ == "__main__":
         main()
-    """
+    
     def opposite(colour):
         if colour == 'W':
             return 'Y'
@@ -282,18 +282,7 @@ while True:
             return 'R'
         elif colour == 'R':
             return 'O'
-    facet = [['Y', 'O', 'R', 'B', 'W'], ['R', 'W', 'Y', 'W', 'B'], ['G', 'W', 'W', 'G', 'W'], ['R', 'B', 'R', 'W', 'Y'], ['W', 'R', 'B', 'R', 'G']]
-    facef = [['R', 'B', 'O', 'Y', 'W'], ['Y', 'W', 'R', 'G', 'W'], ['Y', 'B', 'G', 'W', 'O'], ['B', 'O', 'G', 'R', 'B'], ['W', 'W', 'Y', 'W', 'O']]
-    facer = [['O', 'B', 'G', 'O', 'R'], ['G', 'R', 'Y', 'R', 'W'], ['Y', 'O', 'R', 'B', 'B'], ['O', 'R', 'B', 'O', 'G'], ['Y', 'W', 'W', 'Y', 'G']]
-    facel = [['R', 'W', 'O', 'B', 'G'], ['R', 'O', 'Y', 'B', 'O'], ['G', 'O', 'O', 'G', 'R'], ['R', 'Y', 'B', 'G', 'W'], ['G', 'W', 'B', 'Y', 'B']]
-    faceb = [['B', 'Y', 'W', 'G', 'B'], ['B', 'O', 'W', 'B', 'G'], ['R', 'W', 'B', 'R', 'R'], ['Y', 'G', 'Y', 'Y', 'G'], ['Y', 'Y', 'B', 'G', 'Y']]
-    faced = [['O', 'G', 'G', 'O', 'B'], ['O', 'Y', 'R', 'B', 'O'], ['Y', 'O', 'Y', 'G', 'O'], ['R', 'Y', 'O', 'G', 'R'], ['R', 'O', 'W', 'G', 'O']]
-    oft = facet
-    off = facef
-    ofr = facer
-    ofl = facel
-    ofd = faced
-    ofb = faceb
+    
     check = {'W':0, 'B':0,'R':0, 'G':0, 'Y':0, 'O':0}
     valid = 1
     for i in [facer,facel,faceb,faced,facet,facef]:
@@ -2255,8 +2244,7 @@ while True:
             i += 2
         elif string[i] == 'R' and string[i + 1] == "'":
             move("R'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'L' and string[i + 1] in ['2',' ']:
             move('L')
@@ -2266,8 +2254,7 @@ while True:
             i += 2
         elif string[i] == 'L' and string[i + 1] == "'":
             move("L'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'U' and string[i + 1] in ['2',' ']:
             move('U')
@@ -2277,8 +2264,7 @@ while True:
             i += 2
         elif string[i] == 'U' and string[i + 1] == "'":
             move("U'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+           
             i += 3
         elif string[i] == 'D' and string[i + 1] in ['2',' ']:
             move('D')
@@ -2288,8 +2274,7 @@ while True:
             i += 2
         elif string[i] == 'D' and string[i + 1] == "'":
             move("D'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'F' and string[i + 1] in ['2',' ']:
             move('F')
@@ -2299,8 +2284,7 @@ while True:
             i += 2
         elif string[i] == 'F' and string[i + 1] == "'":
             move("F'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'B' and string[i + 1] in ['2',' ']:
             move('B')
@@ -2310,8 +2294,7 @@ while True:
             i += 2
         elif string[i] == 'B' and string[i + 1] == "'":
             move("B'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'r' and string[i + 1] != "'":
             move('r')
@@ -2321,8 +2304,7 @@ while True:
             i += 2
         elif string[i] == 'r' and string[i + 1] == "'":
             move("r'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'l' and string[i + 1] != "'":
             move('l')
@@ -2332,8 +2314,7 @@ while True:
             i += 2
         elif string[i] == 'l' and string[i + 1] == "'":
             move("l'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'u' and string[i + 1] != "'":
             move('u')
@@ -2343,8 +2324,7 @@ while True:
             i += 2
         elif string[i] == 'u' and string[i + 1] == "'":
             move("u'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+           
             i += 3
         elif string[i] == 'd' and string[i + 1] != "'":
             move('d')
@@ -2354,8 +2334,7 @@ while True:
             i += 2
         elif string[i] == 'd' and string[i + 1] == "'":
             move("d'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'x' and string[i + 1] != "'":
             move('x')
@@ -2365,8 +2344,7 @@ while True:
             i += 2
         elif string[i] == 'x' and string[i + 1] == "'":
             move("x'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'y' and string[i + 1] != "'":
             move('y')
@@ -2376,8 +2354,7 @@ while True:
             i += 2
         elif string[i] == 'y' and string[i + 1] == "'":
             move("y'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'R' and string[i + 1] == 'w' and string[i + 2] != "'":
             move('R')
@@ -2459,8 +2436,7 @@ while True:
             i += 2
         elif string[i] == 'm' and string[i + 1] == "'":
             move("m'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+           
             i += 3
         elif string[i] == 'e' and string[i + 1] != "'":
             move('e')
@@ -2470,8 +2446,7 @@ while True:
             i += 2
         elif string[i] == 'e' and string[i + 1] == "'":
             move("e'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'f' and string[i + 1] != "'":
             move('f')
@@ -2481,8 +2456,7 @@ while True:
             i += 2
         elif string[i] == 'f' and string[i + 1] == "'":
             move("f'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         elif string[i] == 'b' and string[i + 1] != "'":
             move('b')
@@ -2492,8 +2466,7 @@ while True:
             i += 2
         elif string[i] == 'b' and string[i + 1] == "'":
             move("b'")
-            if facet != oft or facel != ofl or facer != ofr or faceb != ofb or faced != ofd or facef != off:
-                print("EDAAAAA")
+            
             i += 3
         print("FACET ",facet)
         print("FACEF ",facef)
@@ -2763,4 +2736,5 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
+
 
