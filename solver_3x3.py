@@ -607,8 +607,6 @@ while True:
     faced = [[],[],[]]
    
 
-    # ---------------- HELPERS ---------------- #
-
     def capture_frame_once(prompt_text):
         """Open webcam until SPACE is pressed. Returns captured frame or None."""
         cap = cv2.VideoCapture(0)
@@ -627,7 +625,6 @@ while True:
             frame = cv2.flip(frame, 1)
             h, w = frame.shape[:2]
 
-            # Draw a center box
             box = 160
             x1 = w//2 - box//2
             y1 = h//2 - box//2
@@ -652,7 +649,6 @@ while True:
 
 
     def avg_center_hsv(frame, size=80):
-        """Return average HSV of a centered box."""
         h, w = frame.shape[:2]
         x1 = w//2 - size//2
         y1 = h//2 - size//2
@@ -667,7 +663,6 @@ while True:
 
 
     def hsv_distance(a, b):
-        """Weighted HSV distance used for matching."""
         dh = hue_distance(a[0], b[0]) / 10
         ds = (a[1] - b[1]) / 50
         dv = (a[2] - b[2]) / 50
@@ -684,8 +679,6 @@ while True:
                 best = cname
         return best
 
-
-    # ---------------- CALIBRATION ---------------- #
 
     def calibrate_all_colors():
         order = ["W","Y","O","R","G","B"]
@@ -709,10 +702,7 @@ while True:
         return centers
 
 
-    # ---------------- FACE SCANNING ---------------- #
-
     def scan_face_live(face_name, centers):
-        """Live webcam feed with 3×3 grid extraction and confirmation."""
         cap = cv2.VideoCapture(0)
         if not cap.isOpened():
             print("Error: Cannot open camera")
@@ -758,11 +748,9 @@ while True:
                     col = match_color(avg, centers)
                     grid[r][c] = col
 
-                    # draw label
                     cv2.putText(frame, col[0], (x1 + c*sw + 10, y1 + r*sh + 30),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255,255,0), 2)
 
-                    # draw mini boxes
                     cv2.rectangle(frame,
                                 (x1 + c*sw, y1 + r*sh),
                                 (x1 + (c+1)*sw, y1 + (r+1)*sh),
@@ -790,8 +778,6 @@ while True:
         cv2.destroyAllWindows()
         return colors_grid
 
-
-    # ---------------- MANUAL EDIT ---------------- #
 
     def manual_edit(grid, centers):
         print("\nDetected grid:")
@@ -831,7 +817,6 @@ while True:
                 continue
 
 
-    # ---------------- MAIN ---------------- #
 
     def main():
         global facet,facer,facel,facef,faceb,faced
@@ -1405,3 +1390,4 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
+
