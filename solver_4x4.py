@@ -3,10 +3,7 @@ import cv2
 import numpy as np
 import sys
 while True:
-    GRID_SIZE = 4   # <<< 4x4 CHANGE
-
-    # ---------------- HELPERS ---------------- #
-
+    GRID_SIZE = 4
     def capture_frame_once(prompt_text):
         cap = cv2.VideoCapture(0)
         if not cap.isOpened():
@@ -81,8 +78,6 @@ while True:
         return best
 
 
-    # ---------------- CALIBRATION ---------------- #
-
     def calibrate_all_colors():
         order = ["W","Y","O","R","G","B"]
         order1 = {"W":"White","R":"Red","B":"Blue","Y":"Yellow","O":"Orange","G":"Green"}
@@ -102,7 +97,6 @@ while True:
         return centers
 
 
-    # ---------------- FACE SCANNING ---------------- #
 
     def scan_face_live(face_name, centers):
         cap = cv2.VideoCapture(0)
@@ -130,7 +124,7 @@ while True:
             face = frame[y1:y2, x1:x2]
             hsv_face = cv2.cvtColor(face, cv2.COLOR_BGR2HSV)
 
-            step = size // GRID_SIZE   # <<< 4x4 CHANGE
+            step = size // GRID_SIZE
             grid = [["" for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
 
             for r in range(GRID_SIZE):
@@ -176,8 +170,6 @@ while True:
         return grid
 
 
-    # ---------------- MANUAL EDIT ---------------- #
-
     def manual_edit(grid, centers):
         while True:
             print("\nDetected grid:")
@@ -189,7 +181,7 @@ while True:
                 return grid
 
             try:
-                r, c = map(int, input("Row Col (1-4): ").split())   # <<< 4x4 CHANGE
+                r, c = map(int, input("Row Col (1-4): ").split())
                 r -= 1; c -= 1
 
                 if not (0 <= r < GRID_SIZE and 0 <= c < GRID_SIZE):
@@ -207,7 +199,6 @@ while True:
                 print("Invalid input")
 
 
-    # ---------------- MAIN ---------------- #
     facef = [[],[],[]]
     facet = [[],[],[]]
     facer = [[],[],[]]
@@ -1867,3 +1858,4 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
+
