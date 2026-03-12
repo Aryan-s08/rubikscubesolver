@@ -332,11 +332,7 @@ corners = []
 
 while True:
 
-    # ---------------- HELPERS ---------------- #
-    print('hi')
-    GRID_SIZE = 2   # <<< 2x2 cube
-
-    # ---------------- HELPERS ---------------- #
+    GRID_SIZE = 2
 
     def capture_frame_once(prompt_text):
         cap = cv2.VideoCapture(0)
@@ -412,8 +408,6 @@ while True:
         return best
 
 
-    # ---------------- CALIBRATION ---------------- #
-
     def calibrate_colors():
         order = ["W","Y","O","R","G","B"]
         names = {"W":"White","Y":"Yellow","O":"Orange",
@@ -433,9 +427,6 @@ while True:
             print(f"{c} calibrated:", centers[c].astype(int))
 
         return centers
-
-
-    # ---------------- FACE SCANNING ---------------- #
 
     def scan_face(face_name, centers):
         cap = cv2.VideoCapture(0)
@@ -509,8 +500,6 @@ while True:
         return grid
 
 
-    # ---------------- MANUAL EDIT ---------------- #
-
     def manual_edit(grid, centers):
         while True:
             print("\nDetected grid:")
@@ -539,8 +528,6 @@ while True:
             except:
                 print("Invalid input")
 
-
-    # ---------------- MAIN ---------------- #
     facef = [[],[],[]]
     facet = [[],[],[]]
     facer = [[],[],[]]
@@ -869,3 +856,4 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
+
