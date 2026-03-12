@@ -5,9 +5,7 @@ import sys
 
 while True:
     
-    GRID_SIZE = 5   # <<< 5x5 cube
-
-    # ---------------- HELPERS ---------------- #
+    GRID_SIZE = 5
 
     def capture_frame_once(prompt_text):
         cap = cv2.VideoCapture(0)
@@ -88,8 +86,6 @@ while True:
         return best
 
 
-    # ---------------- CALIBRATION ---------------- #
-
     def calibrate_colors():
         order = ["W","Y","O","R","G","B"]
         names = {"W":"White","Y":"Yellow","O":"Orange",
@@ -110,8 +106,6 @@ while True:
 
         return centers
 
-
-    # ---------------- FACE SCANNING ---------------- #
 
     def scan_face(face_name, centers):
         cap = cv2.VideoCapture(0)
@@ -185,7 +179,6 @@ while True:
         return grid
 
 
-    # ---------------- MANUAL EDIT ---------------- #
 
     def manual_edit(grid, centers):
         while True:
@@ -216,11 +209,6 @@ while True:
                 print("Invalid input")
 
 
-    # ---------------- MAIN ---------------- #
-
-
-
-    # ---------------- MAIN ---------------- #
     facef = [[],[],[]]
     facet = [[],[],[]]
     facer = [[],[],[]]
@@ -2736,5 +2724,6 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
+
 
 
