@@ -4,9 +4,9 @@ to check if they memorized the sequence correctly or not.
 
 Camera Positions:
 
-Top: White centered face in front of camera, Green centered face on bottom, Blue centered face on top
-Front: Green centered face in front of camera, Yellow centered face on bottom, White centered face on top
-Right: Red centered face in front of camera, Yellow centered face on bottom, White centered face on top
-Left: Orange centered face in front of camera, Yellow centered face on bottom, White centered face on top
-Behind: Blue centered face in front of camera, Yellow centered face on bottom, White centered face on top
-Bottom: Yellow centered face in front of camera, Blue centered face on bottom, Green centered face on top
+Top: White centered face in front of camera, Blue centered face on top
+Front: Green centered face in front of camera, White centered face on top
+Right: Red centered face in front of camera, White centered face on top
+Left: Orange centered face in front of camera, White centered face on top
+Behind: Blue centered face in front of camera, White centered face on top
+Bottom: Yellow centered face in front of camera, Green centered face on top
