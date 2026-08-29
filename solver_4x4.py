@@ -3,7 +3,8 @@ import cv2
 import numpy as np
 import sys
 while True:
-    GRID_SIZE = 4
+    GRID_SIZE = 4 
+
     def capture_frame_once(prompt_text):
         cap = cv2.VideoCapture(0)
         if not cap.isOpened():
@@ -124,7 +125,7 @@ while True:
             face = frame[y1:y2, x1:x2]
             hsv_face = cv2.cvtColor(face, cv2.COLOR_BGR2HSV)
 
-            step = size // GRID_SIZE
+            step = size // GRID_SIZE   # <<< 4x4 CHANGE
             grid = [["" for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
 
             for r in range(GRID_SIZE):
@@ -181,7 +182,7 @@ while True:
                 return grid
 
             try:
-                r, c = map(int, input("Row Col (1-4): ").split())
+                r, c = map(int, input("Row Col (1-4): ").split())   # <<< 4x4 CHANGE
                 r -= 1; c -= 1
 
                 if not (0 <= r < GRID_SIZE and 0 <= c < GRID_SIZE):
@@ -238,12 +239,6 @@ while True:
         for i in [facet,facer,facel,facef,faced,faceb]:
             for j in range(4):
                 i[j] = i[j][::-1]
-        print("FACET ",facet)
-        print("FACEF ",facef)
-        print("FACER ",facer)
-        print("FACEL ",facel)
-        print("FACEB ",faceb)
-        print("FACED ",faced)
     if __name__ == "__main__":
         main()
     def opposite(colour):
@@ -282,7 +277,7 @@ while True:
         for j in i:
             for k in j:
                 if opposite(k) in j or j.count(k) > 1:
-                    print("jk",j,k)
+                    #print("jk",j,k)
                     valid = 0
     if valid == 0:
         print("You made a mistake in entering the colours")
@@ -310,13 +305,13 @@ while True:
                 return i
 
     def centre(l1):
-        print("CYCCCC ",cycle,cecycles)
+        #print("CYCCCC ",cycle,cecycles)
         order = centres[::-1]
         for i in mappings_centre:
             if i not in order:
                 order.append(i)
         for i in order:
-            print("iiii ",i,l1)
+            #print("iiii ",i,l1)
             if ((i != 'A') and (mappings_centre[i] == [l1]) and [l1] != cefind(i)) and ((cycle[i] == 1 and centres.count(i) < 2) or (cycle[i] == 0 and i not in centres)):
                 return i
 
@@ -567,7 +562,7 @@ while True:
         if letter == 'C':
             return [facet[2][2]]
         if letter == 'D':
-            print('lollllll')
+            #print('lollllll')
             return [facet[2][1]]
         if letter == 'E':
             return [facel[1][1]]
@@ -622,38 +617,37 @@ while True:
         return s
 
     def cenewcycle():
-        print("FUNC ",centres)
         edgelist = []
         elist = []
         for i in mappings_centre:
             if i not in ['A']:
                 edgelist.append(i)
-        print("ed ",edgelist)
+        #print("ed ",edgelist)
         edgelist1 = edgelist.copy()
         for i in edgelist1:
             if i in centres:
                 if i in edgelist:
                     edgelist.remove(i)
         edgelist1 = edgelist.copy()
-        print("edgelist",edgelist)
-        print("edgelist1",edgelist1)
-        print("elist",elist)
+        #print("edgelist",edgelist)
+        #print("edgelist1",edgelist1)
+        #print("elist",elist)
         for i in edgelist1:
             t = cefind(i)
             if t == mappings_centre[i]:
                 edgelist.remove(i)
-        print("Edgelist",edgelist)
-        print("Edgelist1",edgelist1)
-        print("Elist",elist)
+        #print("Edgelist",edgelist)
+        #print("Edgelist1",edgelist1)
+        #print("Elist",elist)
         if edgelist == []:
             return 0
         else:
             for i in edgelist:
                 t = cefind(i)
                 elist.append(t)
-            print("edgelisT",edgelist)
-            print("edgelisT1",edgelist1)
-            print("elisT",elist)
+            #print("edgelisT",edgelist)
+            #print("edgelisT1",edgelist1)
+            #print("elisT",elist)
             return edgelist[0]
     def solved():
         s = 0
@@ -664,44 +658,43 @@ while True:
         for i in edgelist:
             if find(i) == mappings_edge[i]:
                 s += 1
-        print("solved ",s)
-        print("cycle",ecycles)
+        #print("solved ",s)
+        #print("cycle",ecycles)
         return s
 
     def newcycle():
-        print("FUNC ",edges)
         edgelist = []
         elist = []
         for i in mappings_edge:
             if i not in ['K','U']:
                 edgelist.append(i)
-        print("ed ",edgelist)
+        #print("ed ",edgelist)
         edgelist1 = edgelist.copy()
         for i in edgelist1:
             if i in edges:
-                print(i)
+                #print(i)
                 if i in edgelist:
                     edgelist.remove(i)
         edgelist1 = edgelist.copy()
-        print("edgelist",edgelist)
-        print("edgelist1",edgelist1)
-        print("elist",elist)
+        #print("edgelist",edgelist)
+        #print("edgelist1",edgelist1)
+        #print("elist",elist)
         for i in edgelist1:
             t = find(i)
             if t == mappings_edge[i]:
                 edgelist.remove(i)
-        print("Edgelist",edgelist)
-        print("Edgelist1",edgelist1)
-        print("Elist",elist)
+        #print("Edgelist",edgelist)
+        #print("Edgelist1",edgelist1)
+        #print("Elist",elist)
         if edgelist == []:
             return 0
         else:
             for i in edgelist:
                 t = find(i)
                 elist.append(t)
-            print("edgelisT",edgelist)
-            print("edgelisT1",edgelist1)
-            print("elisT",elist)
+            #print("edgelisT",edgelist)
+            #print("edgelisT1",edgelist1)
+            #print("elisT",elist)
             return edgelist[0]
 
     def opposite(colour):
@@ -790,12 +783,12 @@ while True:
             t = samec(i)
             if i not in edgelist and t[0] not in edgelist and t[1] not in edgelist and i != 'R' and i != 'E' and i != 'A':
                 edgelist.append(i)
-        print("SOLVED ",edgelist)
+        #print("SOLVED ",edgelist)
         for i in edgelist:
             if findc(i) == d1[i] or findc(i) == d2[i]:
                 s += 1
-        print("solved ",s)
-        print("cycle",ccycles)
+        #print("solved ",s)
+        #print("cycle",ccycles)
         return s
     def samec(letter):
         if letter == 'A':
@@ -847,17 +840,14 @@ while True:
         if letter == 'X':
             return ['S','H']
     def newccycle():
-        print("FUNC ",corners)
         edgelist = []
         elist = []
         for i in mappings_corner:
             if i not in ['E','A','R']:
                 edgelist.append(i)
-        print("ed ",edgelist)
         edgelist1 = edgelist.copy()
         for i in edgelist1:
             if i in corners:
-                print(i)
                 t = samec(i)
                 if i in edgelist:
                     edgelist.remove(i)
@@ -866,25 +856,16 @@ while True:
                 if t[1] in edgelist:
                     edgelist.remove(t[1])
         edgelist1 = edgelist.copy()
-        print("edgelist",edgelist)
-        print("edgelist1",edgelist1)
-        print("elist",elist)
         for i in edgelist1:
             t = findc(i)
             if t == d1[i] or t == d2[i]:
                 edgelist.remove(i)
-        print("Edgelist",edgelist)
-        print("Edgelist1",edgelist1)
-        print("Elist",elist)
         if edgelist == []:
             return 0
         else:
             for i in edgelist:
                 t = findc(i)
                 elist.append(t)
-            print("edgelisT",edgelist)
-            print("edgelisT1",edgelist1)
-            print("elisT",elist)
             return edgelist[0]
 
     def edgealg(letter):
@@ -1134,19 +1115,15 @@ while True:
     edges = []
     corners = []
 
-    print("SSSSS ",cesolved())
     while True:
         buffer1 = facet[1][1]
-        print("BBBBB ",buffer1)
+        #print("BBBBB ",buffer1)
         if buffer1 == 0 or (buffer1 == 'W' and (('B' in centres and 'C' in centres and 'D' in centres) or ('B' in centres and 'C' in centres and facet[2][1] == 'W') or ('B' in centres and facet[2][2] == 'W' and facet[2][1] == 'W') or ('B' in centres and facet[2][2] == 'W' and 'D' in centres) or (facet[1][2] == 'W' and 'C' in centres and 'D' in centres) or (facet[1][2] == 'W' and 'C' in centres and facet[2][1] == 'W') or (facet[1][2] == 'W' and facet[2][1] == 'W' and facet[2][2] == 'W') or (facet[1][2] == 'W' and facet[2][2] == 'W' and 'D' in centres))):
             cecycles += 1
             let = cenewcycle()
-            print("let",let)
             t = cefind(let)
-            print("t",t)
             if t == 0:
                 break
-            print('HFOE ',centre(t[0]))
             #centres.append(centre(t[0]))
             cycle[centre(t[0])] = 1
             buffer1 = t[0]
@@ -1154,10 +1131,7 @@ while True:
                 break
         while (buffer1 != 'W') or (len(centres) != 23 - cesolved() + cecycles):
             if len(centres) == 23 - cesolved() + cecycles:
-                print("lol")
-                print("edges ",centres)
                 break
-            print('edges = ',centres, 'letters = ',buffer1)
             dict = {}
             for i in centres:
                 if i in dict:
@@ -1174,15 +1148,15 @@ while True:
                     buffer1 = 0
 
             if buffer1 == 0:
-                print("fehifehi")
+                #print("fehifehi")
                 cecycles += 1
                 let = cenewcycle()
-                print("let",let)
+                #print("let",let)
                 t = cefind(let)
                 if t == 0:
                     break
-                print("t",t,centre(t[0]))
-                print('HFOEF ',centre(t[0]))
+                #print("t",t,centre(t[0]))
+                #print('HFOEF ',centre(t[0]))
                 centres.append(centre(t[0]))
                 cycle[centres[-1]] = 1
                 buffer1 = cefind(centres[-1])[0]
@@ -1204,9 +1178,9 @@ while True:
                     if centres[-1] == i:
                         buffer1 = 0
             if buffer1 != 0:
-                print('CENTERRRRR ',centres[-1])
+                #print('CENTERRRRR ',centres[-1])
                 t = cefind(centres[-1])
-                print("ttttt ",t)
+                #print("ttttt ",t)
                 buffer1 = t[0]
             if buffer1 == 'W' or buffer1 == 0 and ('B' in centres and 'C' in centres and 'D' in centres) or ('B' in centres and 'C' in centres and facet[2][1] == 'W') or ('B' in centres and facet[2][2] == 'W' and facet[2][1] == 'W') or ('B' in centres and facet[2][2] == 'W' and 'D' in centres) or (facet[1][2] == 'W' and 'C' in centres and 'D' in centres) or (facet[1][2] == 'W' and 'C' in centres and facet[2][1] == 'W') or (facet[1][2] == 'W' and facet[2][1] == 'W' and facet[2][2] == 'W') or (facet[1][2] == 'W' and facet[2][2] == 'W' and 'D' in centres):
 
@@ -1223,14 +1197,14 @@ while True:
                             buffer1 = 0
                 if buffer1 == 0:
                     cecycles += 1
-                    print('aiya')
+                    #print('aiya')
                     let = cenewcycle()
-                    print("let",let)
+                    #print("let",let)
                     t = cefind(let)
                     if t == 0:
                         break
-                    print("t",t)
-                    print('HFOEFHW ',centre(t[0]))
+                    #print("t",t)
+                    #print('HFOEFHW ',centre(t[0]))
                     centres.append(centre(t[0]))
                     buffer1 = cefind(centres[-1])[0]
                     cycle[centres[-1]] = 1
@@ -1248,7 +1222,7 @@ while True:
                 centres[i] = 'B'
                 continue
 
-    print("FINAL ",centres,len(centres))
+    #print("FINAL ",centres,len(centres))
 
     while True:
         buffer2 = facef[3][2]
@@ -1267,7 +1241,7 @@ while True:
                 #print("lol")
                 #print("edges ",edges)
                 break
-            print('edges = ',edges, 'letters = ',buffer1,buffer2)
+            #print('edges = ',edges, 'letters = ',buffer1,buffer2)
             dict = {}
             for i in edges:
                 if i in dict:
@@ -1338,7 +1312,7 @@ while True:
         elif edges[i] == 'S':
             edges[i] = 'I'
             continue
-    print("FINAL EDGES ",edges)
+    #print("FINAL EDGES ",edges)
 
     while True:
         buffer1 = facel[0][0]
@@ -1347,9 +1321,9 @@ while True:
         if buffer1 in ['W','B','O'] and buffer2 in ['W','B','O'] and buffer3 in ['W','B','O']:
             ccycles += 1
             let = newccycle()
-            print("let",let)
+            #print("let",let)
             t = findc(let)
-            print("t",t)
+            #print("t",t)
             buffer1,buffer2,buffer3 = t[0],t[1],t[2]
             if buffer1 == 0:
                 break
@@ -1358,7 +1332,7 @@ while True:
                 #print("lol")
                 #print("corners ",corners)
                 break
-            print('corners = ',corners, 'letters = ',buffer1,buffer2,buffer3)
+            #print('corners = ',corners, 'letters = ',buffer1,buffer2,buffer3)
             dict = {}
             for i in corners:
                 if i in dict:
@@ -1443,7 +1417,7 @@ while True:
                     else:
                         continue
         break
-    print("FINAL CORNERS ",corners)
+    #print("FINAL CORNERS ",corners)
 
     string = ""
     for i in centres:
@@ -1492,11 +1466,9 @@ while True:
     if len(corners) % 2 == 1:
         string += "U2 R U R' U' r2 U2 r2 Uw2 r2 Uw2 U' R U' R' U2 "
     i = 0
-    print(string)
     while True:
         if i >= len(string) - 1:
             break
-        print(string[i]+string[i+1])
         if string[i] == 'R' and string[i + 1] in ['2',' ']:
             move('R')
             if string[i + 1] == '2':
@@ -1677,13 +1649,6 @@ while True:
             move("B'")
             move("b'")
             i += 4
-        print("FACET ",facet)
-        print("FACEF ",facef)
-        print("FACED ",faced)
-        print("FACER ",facer)
-        print("FACEL ",facel)
-        print("FACEB ",faceb)
-        print()
 
     if facet == [['W','W','W','W'],['W','W','W','W'],['W','W','W','W'],['W','W','W','W']] and facef == [['G','G','G','G'],['G','G','G','G'],['G','G','G','G'],['G','G','G','G']] and facer == [['R','R','R','R'],['R','R','R','R'],['R','R','R','R'],['R','R','R','R']] and facel == [['O','O','O','O'],['O','O','O','O'],['O','O','O','O'],['O','O','O','O']] and faceb == [['B','B','B','B'],['B','B','B','B'],['B','B','B','B'],['B','B','B','B']] and faced == [['Y','Y','Y','Y'],['Y','Y','Y','Y'],['Y','Y','Y','Y'],['Y','Y','Y','Y']]:
         break
@@ -1858,4 +1823,3 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
-
