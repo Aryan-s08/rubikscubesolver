@@ -331,7 +331,6 @@ def decode(letter):
 corners = []
 
 while True:
-
     GRID_SIZE = 2
 
     def capture_frame_once(prompt_text):
@@ -407,7 +406,6 @@ while True:
                 best = cname
         return best
 
-
     def calibrate_colors():
         order = ["W","Y","O","R","G","B"]
         names = {"W":"White","Y":"Yellow","O":"Orange",
@@ -427,6 +425,8 @@ while True:
             print(f"{c} calibrated:", centers[c].astype(int))
 
         return centers
+
+
 
     def scan_face(face_name, centers):
         cap = cv2.VideoCapture(0)
@@ -500,6 +500,7 @@ while True:
         return grid
 
 
+
     def manual_edit(grid, centers):
         while True:
             print("\nDetected grid:")
@@ -527,6 +528,7 @@ while True:
                 grid[r][c] = newc
             except:
                 print("Invalid input")
+
 
     facef = [[],[],[]]
     facet = [[],[],[]]
@@ -616,7 +618,7 @@ while True:
                 #print("lol")
                 #print("corners ",corners)
                 break
-            print('corners = ',corners, 'letters = ',buffer1,buffer2,buffer3)
+            #print('corners = ',corners, 'letters = ',buffer1,buffer2,buffer3)
             dict = {}
             for i in corners:
                 if i in dict:
@@ -715,7 +717,6 @@ while True:
     while True:
         if i >= len(string) - 1:
             break
-        print(string[i]+string[i+1])
         if string[i] == 'R' and string[i + 1] != "'":
             move('R')
             if string[i + 1] == '2':
@@ -779,14 +780,6 @@ while True:
         elif string[i] == 'M' and string[i + 1] == "'":
             move("M'")
             i += 3
-        
-        print("FACET ",facet)
-        print("FACEF ",facef)
-        print("FACED ",faced)
-        print("FACER ",facer)
-        print("FACEL ",facel)
-        print("FACEB ",faceb)
-        print()
     
     if facet == [['W','W'],['W','W']] and facef == [['G','G'],['G','G']] and facer == [['R','R'],['R','R']] and facel == [['O','O'],['O','O']] and faceb == [['B','B'],['B','B']] and faced == [['Y','Y'],['Y','Y']]:
         break
@@ -856,4 +849,3 @@ for i in stri:
     print(i, end = '', flush = True)
 print()
 input("Click Enter to exit program:")
-
