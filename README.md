@@ -1,3 +1,4 @@
+Run pip install -r requirements.txt to install dependencies
 Run using py filename.py or python filename.py (-m flag can cause camera to crash)
 
 Each of the files contains solvers for the specified type of rubik's cube. They not only solve the rubik's cube but also give the sequence of blindfold letters which is extremely useful for those who are trying to learn
