@@ -785,7 +785,7 @@ while True:
         break
     else:
         print("You made a mistake in entering the colours")
-        ans = input("Are you sure you want to get the moves to find out if you have a twisted piece, type no to enter choices if you have entered incorrectly?: ")
+        ans = input("Are you sure you want to get the moves to find out if you have a twisted piece [type yes], type no to enter choices if you have entered incorrectly?: ")
         if ans.lower() == 'yes':
             break
         continue
